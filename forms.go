@@ -85,7 +85,7 @@ func BaseFormFromModel(m interface{}, method, action string) *Form {
 	for _, v := range unWindStructure(m, "") {
 		form.Elements(v)
 	}
-	form.Elements(fields.SubmitButton("submit", "Submit"))
+	form.Elements(fields.SubmitButton("submitButton", "Submit"))
 	return form
 }
 
@@ -95,7 +95,7 @@ func BootstrapFormFromModel(m interface{}, method, action string) *Form {
 	for _, v := range unWindStructure(m, "") {
 		form.Elements(v)
 	}
-	form.Elements(fields.SubmitButton("submit", "Submit"))
+	form.Elements(fields.SubmitButton("submitButton", "Submit"))
 	return form
 }
 
