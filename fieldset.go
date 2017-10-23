@@ -10,6 +10,7 @@ import (
 // FieldSetType is a collection of fields grouped within a form.
 type FieldSetType struct {
 	name     string
+	legend   string
 	class    map[string]struct{}
 	tags     map[string]struct{}
 	fields   []fields.FieldInterface
@@ -24,6 +25,7 @@ func (f *FieldSetType) Render() template.HTML {
 		"fields":  f.fields,
 		"classes": f.class,
 		"tags":    f.tags,
+		"legend":  f.legend,
 	}
 	err := template.Must(template.ParseFiles(formcommon.CreateUrl("templates/fieldset.html"))).Execute(buf, data)
 	if err != nil {
@@ -32,11 +34,12 @@ func (f *FieldSetType) Render() template.HTML {
 	return template.HTML(buf.String())
 }
 
-// FieldSet creates and returns a new FieldSetType with the given name and list of fields.
+// FieldSet creates and returns a new FieldSetType with the given name, legend, and list of fields.
 // Every method for FieldSetType objects returns the object itself, so that call can be chained.
-func FieldSet(name string, elems ...fields.FieldInterface) *FieldSetType {
+func FieldSet(name, legend string, elems ...fields.FieldInterface) *FieldSetType {
 	ret := &FieldSetType{
 		name,
+		legend,
 		map[string]struct{}{},
 		map[string]struct{}{},
 		elems,
@@ -60,6 +63,11 @@ func (f *FieldSetType) Field(name string) fields.FieldInterface {
 // Name returns the name of the fieldset.
 func (f *FieldSetType) Name() string {
 	return f.name
+}
+
+// Legend returns the legend of the fieldset.
+func (f *FieldSetType) Legend() string {
+	return f.legend
 }
 
 // AddClass saves the provided class for the fieldset.

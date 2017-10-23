@@ -128,7 +128,7 @@ func TestBSFormFromModel(t *testing.T) {
 func TestInlineCreation(t *testing.T) {
 	form := BaseForm(POST, "/action.html").Elements(
 		fields.TextField("text_field").SetLabel("Username"),
-		FieldSet("psw_fieldset",
+		FieldSet("psw_fieldset", "Passwords",
 			fields.PasswordField("psw1").AddClass("password_class").SetLabel("Password 1"),
 			fields.PasswordField("psw2").AddClass("password_class").SetLabel("Password 2"),
 		),
