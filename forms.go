@@ -5,8 +5,8 @@
 package forms
 
 import (
-	"github.com/kirves/go-form-it/common"
-	"github.com/kirves/go-form-it/fields"
+	"github.com/APTrust/go-form-it/common"
+	"github.com/APTrust/go-form-it/fields"
 	"html/template"
 	"reflect"
 	"strings"
