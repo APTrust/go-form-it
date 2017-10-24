@@ -1,4 +1,4 @@
 <fieldset{{if .classes }} class="{{range $k,$v := .classes}} {{$k}}{{end}}"{{end}}{{ if .tags}}{{range $k,$v := .tags}} {{$k}}{{end}}{{end}}>
-  <legend>{{ .legend }}</legend>
+  {{if .legend }}<legend>{{ .legend }}</legend>{{end}}
 	{{range .fields}}{{ .Render }}{{end}}
 </fieldset>

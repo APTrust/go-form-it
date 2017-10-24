@@ -1,5 +1,5 @@
 {{ define "main"}}{{ $p := . }}
-<div class="form-group">
+<div class="form-group{{ if .classes }} {{range .classes}}{{.}} {{end}}{{end}}">
 {{if .label}}<label class="control-label {{ if $p.labelClasses }}{{range $p.labelClasses}} {{.}}{{end}}{{end}}">{{.label}}</label>{{end}}{{ range .choices }}
 <!-- <div class="radio"> -->
 <label class="control-label {{ if $p.labelClasses }}{{range $p.labelClasses}} {{.}}{{end}}{{end}}">
